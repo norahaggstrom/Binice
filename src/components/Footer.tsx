@@ -8,6 +8,7 @@ export default function Footer() {
         <Link
           to="/"
           aria-label="Till startsidan"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex -translate-x-[6px] items-center justify-center transition-opacity duration-200 hover:opacity-80"
         >
           <img

@@ -227,12 +227,12 @@ export default function Process() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-ink">
       {/* ========== HEADER + RUBRIK ========== */}
-      <section className="relative min-h-[26vw] overflow-hidden">
+      <section className="relative min-h-[min(26vw,480px)] overflow-hidden">
         <img
           src={smallWave}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full select-none"
+          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full max-h-[480px] select-none object-cover object-bottom"
         />
 
         <div className="relative z-10">
@@ -249,7 +249,7 @@ export default function Process() {
       </section>
 
       {/* ========== UTVECKLING AV HEMSIDAN ========== */}
-      <section className="pb-24 pt-4 md:pt-8">
+      <section className="pb-24">
         <div className="px-6 text-center">
           <h2 className="font-display text-3xl text-ink md:text-4xl">
             Utveckling av hemsidan

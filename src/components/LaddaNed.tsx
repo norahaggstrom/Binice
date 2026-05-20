@@ -10,12 +10,12 @@ export default function LaddaNed() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-ink">
       {/* ========== HEADER + RUBRIK ========== */}
-      <section className="relative min-h-[26vw] overflow-hidden">
+      <section className="relative min-h-[min(26vw,480px)] overflow-hidden">
         <img
           src={smallWave}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full select-none"
+          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full max-h-[480px] select-none object-cover object-bottom"
         />
 
         <div className="relative z-10">
@@ -24,7 +24,7 @@ export default function LaddaNed() {
               Testa Binice
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/90">
-              Installera plugin-et i Chrome för att använda Binice skarpt på
+              Installera pluginet i Chrome för att använda Binice skarpt på
               Facebook.
             </p>
           </div>
@@ -32,13 +32,12 @@ export default function LaddaNed() {
       </section>
 
       {/* ========== NEDLADDNING + INNAN DU BÖRJAR ========== */}
-      <section className="px-6 pb-20 pt-4 md:pt-8">
+      <section className="px-6 pb-20">
         <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Klickbart nedladdningskort */}
-          {/* TODO: byt href till riktig nedladdningslänk (ZIP, GitHub
-              eller Chrome Web Store) när den finns */}
           <a
-            href="#"
+            href={`${import.meta.env.BASE_URL}binice-extension.zip`}
+            download="binice-extension.zip"
             className="group block overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-ink/10 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
           >
             {/* Övre grön del med illustration */}

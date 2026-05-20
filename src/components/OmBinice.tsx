@@ -1,4 +1,5 @@
 import smallWave from "../assets/small-herowave.png";
+import girlWithBee from "../assets/girlwithbee.png";
 import Footer from "./Footer";
 
 const CARDS: {
@@ -7,6 +8,7 @@ const CARDS: {
   bg: string;
   title2: string;
   text: string;
+  image?: string;
 }[] = [
   {
     title: "Problemet",
@@ -21,6 +23,7 @@ const CARDS: {
     bg: "bg-sage",
     title2: "text-ink",
     text: "text-ink/80",
+    image: girlWithBee,
   },
   {
     title: "Teorin bakom",
@@ -47,15 +50,16 @@ const CARDS: {
 
 export default function OmBinice() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-white text-ink">
+    <div className="flex min-h-screen w-full flex-col overflow-x-hidden bg-white text-ink">
+      <main className="flex-1">
       {/* ========== HEADER + RUBRIK ========== */}
-      <section className="relative min-h-[26vw] overflow-hidden">
+      <section className="relative min-h-[min(26vw,480px)] overflow-hidden">
         {/* Mindre våg överst (egen för Om-sidan) */}
         <img
           src={smallWave}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full select-none"
+          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full max-h-[480px] select-none object-cover object-bottom"
         />
 
         <div className="relative z-10">
@@ -73,7 +77,7 @@ export default function OmBinice() {
       </section>
 
       {/* ========== FÄLT (Problem, Lösning, Teori, Målgrupp, Binice) ===== */}
-      <section className="px-6 pb-24 pt-4 md:pt-8">
+      <section className="px-6 pb-24">
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-12">
           {CARDS.map((card) => {
             const place: Record<string, string> = {
@@ -87,21 +91,32 @@ export default function OmBinice() {
             return (
               <div
                 key={card.title}
-                className={`rounded-3xl p-8 ${card.bg} ${place[card.title] ?? ""}`}
+                className={`relative flex flex-col overflow-hidden rounded-3xl p-8 ${card.bg} ${place[card.title] ?? ""}`}
               >
                 <h2
-                  className={`font-display text-2xl md:text-3xl ${card.title2}`}
+                  className={`relative z-10 font-display text-2xl md:text-3xl ${card.title2}`}
                 >
                   {card.title}
                 </h2>
-                <p className={`mt-3 text-base leading-relaxed ${card.text}`}>
+                <p
+                  className={`relative z-10 mt-3 text-base leading-relaxed ${card.text}`}
+                >
                   {card.body}
                 </p>
+                {card.image && (
+                  <img
+                    src={card.image}
+                    alt=""
+                    aria-hidden
+                    className="pointer-events-none absolute -bottom-[150px] -right-[90px] z-0 w-[480px] max-w-none select-none"
+                  />
+                )}
               </div>
             );
           })}
         </div>
       </section>
+      </main>
 
       {/* ========== FOOTER ========== */}
       <Footer />

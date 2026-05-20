@@ -24,16 +24,32 @@ export default function StartPage() {
         {/* Hero content */}
         <div className="relative mx-auto w-full max-w-5xl 2xl:max-w-6xl min-[1800px]:max-w-6xl min-[2200px]:max-w-7xl px-6 md:px-12 flex-1 grid grid-cols-1 lg:grid-cols-2 min-[1800px]:grid-cols-[3fr_1fr] gap-8 2xl:gap-16 min-[1800px]:gap-24 min-[2200px]:gap-32 items-start pt-24 md:pt-28 pb-[12vw]">
           {/* Copy */}
-          <div className="min-w-0 max-w-sm 2xl:max-w-md min-[1800px]:max-w-2xl min-[2200px]:max-w-4xl lg:justify-self-end lg:-translate-x-6 min-[1800px]:-translate-x-[140px] min-[2200px]:-translate-x-[180px]">
-            <h1 className="font-display text-5xl md:text-6xl 2xl:text-7xl min-[1800px]:text-8xl min-[2200px]:text-9xl leading-tight">
-              <span className="block text-ink">Tänk</span>
-              <span className="block">
+          <div className="min-w-0 max-w-sm 2xl:max-w-md min-[1800px]:max-w-2xl min-[2200px]:max-w-3xl lg:justify-self-end lg:-translate-x-6 min-[1800px]:-translate-x-[200px] min-[2200px]:-translate-x-[180px] 2xl:translate-y-[60px] min-[1800px]:translate-y-[100px] min-[2200px]:translate-y-[100px]">
+            <h1 className="font-display text-5xl md:text-6xl 2xl:text-7xl min-[1800px]:text-8xl leading-tight">
+              <span
+                className="animate-fade-up block text-ink"
+                style={{ animationDelay: "0ms" }}
+              >
+                Tänk
+              </span>
+              <span
+                className="animate-fade-up block"
+                style={{ animationDelay: "120ms" }}
+              >
                 <span className="text-ink">efter </span>
                 <span className="text-ink-soft">innan</span>
               </span>
-              <span className="block text-ink">du skickar.</span>
+              <span
+                className="animate-fade-up block text-ink"
+                style={{ animationDelay: "240ms" }}
+              >
+                du skickar.
+              </span>
             </h1>
-            <p className="mt-8 text-lg 2xl:text-xl min-[1800px]:text-2xl min-[2200px]:text-3xl leading-relaxed text-ink/90">
+            <p
+              className="animate-fade-right mt-8 text-lg 2xl:text-xl min-[1800px]:text-2xl leading-relaxed text-ink/90"
+              style={{ animationDelay: "650ms" }}
+            >
               Binice är ett webbläsar-plugin som skapar en paus i emotionellt
               laddade kommentarsfält. Binice hjälper dig formulera vad du
               egentligen vill säga på ett sätt som respekterar relationen.
@@ -47,13 +63,15 @@ export default function StartPage() {
                     .getElementById("demo-card")
                     ?.scrollIntoView({ behavior: "smooth", block: "center" });
                 }}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-clay text-white text-lg shadow transition-colors duration-300 ease-out hover:bg-[#AA5620]"
+                style={{ animationDelay: "1300ms" }}
+                className="animate-fade-up-strong inline-flex items-center justify-center px-7 py-3 rounded-full bg-clay text-white text-lg shadow transition-colors duration-300 ease-out hover:bg-[#AA5620]"
               >
                 Testa demo
               </a>
               <Link
                 to="/ladda-ned"
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-ink text-lg shadow transition-colors duration-300 ease-out hover:bg-ink hover:text-white"
+                style={{ animationDelay: "1500ms" }}
+                className="animate-fade-up-strong inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-ink text-lg shadow transition-colors duration-300 ease-out hover:bg-ink hover:text-white"
               >
                 Ladda ned plugin
               </Link>
@@ -61,7 +79,7 @@ export default function StartPage() {
           </div>
 
           {/* Hero-bild */}
-          <div className="relative min-w-0 justify-self-center lg:justify-self-end lg:-translate-y-[152px] lg:translate-x-[168px] 2xl:translate-x-[220px] min-[1800px]:translate-x-[280px] min-[2200px]:translate-x-[340px]">
+          <div className="relative min-w-0 justify-self-center lg:justify-self-end lg:-translate-y-[152px] lg:translate-x-[168px] 2xl:translate-x-[220px] min-[1800px]:translate-x-[340px] min-[2200px]:translate-x-[340px]">
             <img
               src={flowerGirl}
               alt="Illustration av en person som sitter lugnt med sin telefon, omgiven av blommor"
@@ -76,7 +94,7 @@ export default function StartPage() {
       {/* ========== TESTA BINICE LIVE ========== */}
       <section
         id="demo"
-        className="relative z-20 -mt-8 md:-mt-20 pt-0 pb-32 md:pb-48 px-6 md:px-12 bg-white"
+        className="relative z-20 -mt-8 md:-mt-20 min-[1800px]:-mt-40 min-[2200px]:-mt-56 pt-0 pb-32 md:pb-48 px-6 md:px-12 bg-white"
       >
         <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-start">
           {/* Interaktiv demo */}

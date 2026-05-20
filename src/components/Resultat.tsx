@@ -7,13 +7,13 @@ export default function Resultat() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-ink">
       {/* ========== HEADER + RUBRIK ========== */}
-      <section className="relative min-h-[26vw] overflow-hidden">
+      <section className="relative min-h-[min(26vw,480px)] overflow-hidden">
         {/* Mindre våg överst (samma som övriga sidor) */}
         <img
           src={smallWave}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full select-none"
+          className="pointer-events-none absolute inset-x-0 top-0 z-0 w-full max-h-[480px] select-none object-cover object-bottom"
         />
 
         <div className="relative z-10">
@@ -30,7 +30,7 @@ export default function Resultat() {
       </section>
 
       {/* ========== DEMOVIDEO ========== */}
-      <section className="px-6 pb-24 pt-4 md:pt-8">
+      <section className="px-6 pb-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-4 font-display text-2xl text-ink md:text-3xl">
             Demo av reflektionsflödet

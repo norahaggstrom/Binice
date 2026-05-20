@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import StartPage from "./components/StartPage";
 import OmBinice from "./components/OmBinice";
@@ -8,7 +8,7 @@ import Resultat from "./components/Resultat";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<StartPage />} />
@@ -18,6 +18,6 @@ export default function App() {
           <Route path="/resultat" element={<Resultat />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

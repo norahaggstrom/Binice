@@ -48,7 +48,7 @@ export default function StartPage() {
             </h1>
             <p
               className="animate-fade-right mt-8 text-lg 2xl:text-xl min-[1800px]:text-2xl leading-relaxed text-ink/90"
-              style={{ animationDelay: "650ms" }}
+              style={{ animationDelay: "480ms" }}
             >
               Binice är ett webbläsar-plugin som skapar en paus i emotionellt
               laddade kommentarsfält. Binice hjälper dig formulera vad du
@@ -63,14 +63,14 @@ export default function StartPage() {
                     .getElementById("demo-card")
                     ?.scrollIntoView({ behavior: "smooth", block: "center" });
                 }}
-                style={{ animationDelay: "1300ms" }}
+                style={{ animationDelay: "950ms" }}
                 className="animate-fade-up-strong inline-flex items-center justify-center px-7 py-3 rounded-full bg-clay text-white text-lg shadow transition-colors duration-300 ease-out hover:bg-[#AA5620]"
               >
                 Testa demo
               </a>
               <Link
                 to="/ladda-ned"
-                style={{ animationDelay: "1500ms" }}
+                style={{ animationDelay: "1100ms" }}
                 className="animate-fade-up-strong inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-ink text-lg shadow transition-colors duration-300 ease-out hover:bg-ink hover:text-white"
               >
                 Ladda ned plugin

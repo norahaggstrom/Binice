@@ -297,7 +297,43 @@ export default function Process() {
       </section>
 
       {/* ========== FRÅN SKISS TILL FÄRDIG DESIGN ========== */}
-      <section className="bg-[#EDF4EF] px-6 pb-24 pt-20">
+      <section className="relative bg-[#EDF4EF] px-6 pb-24 pt-20">
+        {/* Vågig övre kant: S-våg (humpar uppåt och nedåt) */}
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute inset-x-0 top-0 h-16 w-full -translate-y-1/2 md:h-24"
+        >
+          {/* Grön del som buktar upp över sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,80 L0,80 Z"
+            fill="#EDF4EF"
+          />
+          {/* Vit del som biter in i sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,0 L0,0 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+        {/* Vågig undre kant: S-våg (humpar uppåt och nedåt) */}
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-16 w-full translate-y-1/2 md:h-24"
+        >
+          {/* Grön del som buktar ner under sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,0 L0,0 Z"
+            fill="#EDF4EF"
+          />
+          {/* Vit del som biter in i sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,80 L0,80 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl text-ink md:text-4xl">
             Från skiss till färdig design
@@ -308,37 +344,76 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-4xl space-y-12">
-          {COMPARISONS.map((c) => (
-            <div
-              key={c.title}
-              className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-ink/10 md:p-8"
-            >
-              <h3 className="font-display text-xl text-ink md:text-2xl">
-                {c.title}
-              </h3>
-              <div className="no-scrollbar mt-5 flex flex-col items-center gap-6 overflow-x-auto md:flex-row md:items-center md:justify-center">
-                {[
-                  { label: "Tidig skiss", src: c.before },
-                  { label: "Idag", src: c.after },
-                ].map((img) => (
-                  <figure key={img.label} className="shrink-0">
+        <div className="mx-auto mt-12 max-w-5xl space-y-32">
+          {COMPARISONS.map((c, i) => {
+            const reverse = i % 2 === 1;
+            return (
+              <div
+                key={c.title}
+                className={[
+                  "grid grid-cols-1 items-center gap-10 md:gap-12",
+                  reverse
+                    ? "md:grid-cols-[3fr_2fr]"
+                    : "md:grid-cols-[2fr_3fr]",
+                ].join(" ")}
+              >
+                {/* Text */}
+                <div className={reverse ? "md:order-2" : ""}>
+                  <h3 className="font-display text-xl text-ink md:text-2xl">
+                    {c.title}
+                  </h3>
+                  <ul className="mt-5 space-y-3">
+                    <li className="flex gap-3 text-base leading-relaxed text-ink/85">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-clay"
+                      />
+                      <span>{c.caption}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Bilder stackade, lätt asymmetriskt; speglas på varannan */}
+                <div
+                  className={[
+                    "flex flex-col items-center gap-6 md:flex-row md:items-end md:justify-center md:gap-8",
+                    reverse ? "md:order-1" : "",
+                  ].join(" ")}
+                >
+                  <figure
+                    className={[
+                      "bg-white p-3 pb-4 shadow-xl ring-1 ring-ink/10",
+                      reverse ? "rotate-[3deg]" : "-rotate-[3deg]",
+                    ].join(" ")}
+                  >
                     <img
-                      src={img.src}
-                      alt={`${c.title}: ${img.label}`}
-                      className="block h-72 w-auto rounded-2xl object-contain ring-1 ring-ink/10 md:h-[26rem]"
+                      src={c.before}
+                      alt={`${c.title}: Tidig skiss`}
+                      className="block h-[260px] w-auto object-contain md:h-[320px]"
                     />
-                    <figcaption className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-clay">
-                      {img.label}
+                    <figcaption className="mt-3 text-center font-display text-sm text-ink">
+                      Tidig skiss
                     </figcaption>
                   </figure>
-                ))}
+                  <figure
+                    className={[
+                      "bg-white p-3 pb-4 shadow-xl ring-1 ring-ink/10 md:-translate-y-6",
+                      reverse ? "-rotate-[2deg]" : "rotate-[2deg]",
+                    ].join(" ")}
+                  >
+                    <img
+                      src={c.after}
+                      alt={`${c.title}: Idag`}
+                      className="block h-[260px] w-auto object-contain md:h-[320px]"
+                    />
+                    <figcaption className="mt-3 text-center font-display text-sm text-ink">
+                      Idag
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
-              <p className="mt-5 text-base leading-relaxed text-ink/85">
-                {c.caption}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

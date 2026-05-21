@@ -114,7 +114,25 @@ export default function Resultat() {
       </section>
 
       {/* ========== GENERELLT ========== */}
-      <section className="px-6 pb-24 pt-8 md:pt-12">
+      <section className="relative bg-[#EDF4EF] px-6 pb-24 pt-20 md:pt-24">
+        {/* Vågig övre kant: S-våg (humpar uppåt och nedåt) */}
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute inset-x-0 top-0 h-16 w-full -translate-y-1/2 md:h-24"
+        >
+          {/* Grön del som buktar upp över sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,80 L0,80 Z"
+            fill="#EDF4EF"
+          />
+          {/* Vit del som biter in i sektionens kant */}
+          <path
+            d="M0,40 C45,10 135,10 180,40 C225,70 315,70 360,40 C405,10 495,10 540,40 C585,70 675,70 720,40 C765,10 855,10 900,40 C945,70 1035,70 1080,40 C1125,10 1215,10 1260,40 C1305,70 1395,70 1440,40 L1440,0 L0,0 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl text-ink md:text-3xl">
             Generellt
